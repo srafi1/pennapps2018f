@@ -16,6 +16,34 @@ with open('data.json') as f:
 def home():
     return render_template('index.html')
 
+@app.route('/results')
+def results():
+    text = request.args.get('jsdata')
+
+    if text: #if text
+        similar = []
+
+        for submission in submissions:
+            if submission['info'] != '':
+                response = unirest.post("https://twinword-text-similarity-v1.p.mashape.com/similarity/",
+                                        headers={
+                                            "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
+                                            "Content-Type": "application/x-www-form-urlencoded",
+                                            "Accept": "application/json"
+                                        },
+                                        params={
+                                            "text1": text,
+                                            "text2": submission['info']
+                                        }
+                )
+
+
+                if response.body['similarity'] > 0.3:
+                    similar.append(submission)
+
+        return json.dumps(similar)
+
+
 @app.route('/search')
 def search():
     text = request.args.get('jsdata')
@@ -37,41 +65,7 @@ def search():
     else:
         keywords = []
 
-    synonyms = []
-
-    for keyword in keywords:
-        synRes = unirest.get("https://wordsapiv1.p.mashape.com/words/" + keyword + "/synonyms",
-                             headers={
-                                 "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
-                                 "Accept": "application/json"
-                             }
-        )
-
-        synList = synRes.body['synonyms']
-        synonyms += synList[:3] if len(synList) >= 3 else synList
-
-    if False: #if text
-        similar = []
-
-        for submission in submissions:
-            if submission['info'] != '':
-                response = unirest.post("https://twinword-text-similarity-v1.p.mashape.com/similarity/",
-                                        headers={
-                                            "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
-                                            "Content-Type": "application/x-www-form-urlencoded",
-                                            "Accept": "application/json"
-                                        },
-                                        params={
-                                            "text1": text,
-                                            "text2": submission['info']
-                                        }
-                )
-
-
-                if response.body['similarity'] > 0.3:
-                    similar.append(submission['info'])
-
-    return json.dumps({'keywords':keywords, 'synonyms':synonyms})
+    return json.dumps({'keywords':keywords})
 
 @app.route('/getTitles')
 def getTitles():
