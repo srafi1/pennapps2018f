@@ -19,8 +19,35 @@ def home():
 @app.route('/search')
 def search():
     text = request.args.get('jsdata')
-    print text
-    if text:
+
+    res = unirest.post("https://twinword-topic-tagging.p.mashape.com/generate/",
+                            headers={
+                                    "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
+                                    "Content-Type": "application/x-www-form-urlencoded",
+                                    "Accept": "application/json"
+
+                            },
+                            params={
+                                    "text": text
+                            }
+    )
+
+    keywords = res.body['keyword']
+
+    synonyms = []
+
+    for keyword in keywords:
+        synRes = unirest.get("https://wordsapiv1.p.mashape.com/words/" + keyword + "/synonyms",
+                             headers={
+                                 "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
+                                 "Accept": "application/json"
+                             }
+        )
+
+        synList = synRes.body['synonyms']
+        synonyms += synList[:3] if len(synList) >= 3 else synList
+
+    if False: #if text
         similar = []
 
         for submission in submissions:
@@ -41,7 +68,11 @@ def search():
                 if response.body['similarity'] > 0.3:
                     similar.append(submission['info'])
 
-    return render_template('suggestions.html', suggestions = similar)
+    return json.dumps({'keywords':keywords, 'synonyms':synonyms})
+
+@app.route('/getTitles')
+def getTitles():
+    return json.dumps([submission['title'] for submission in submissions if submission['title']])
 
 if __name__ == '__main__':
     app.run(debug=True)

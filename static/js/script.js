@@ -50,10 +50,19 @@ function animateIdea(response) {
     $(this).remove();
   });
 
+  var highlightedWords = Object.keys(JSON.parse(response).keywords);
+  console.log(highlightedWords);
+
   var words = idea.split(' ');
   var sentence = '';
   words.forEach((word) => {
-    if (word === 'asdf') {
+    var highlighted = false;
+    highlightedWords.forEach((w) => {
+      if (w === word) {
+        highlighted = true;
+      }
+    });
+    if (highlighted) {
       sentence += '<span class="blue-text">' + word + ' </span>';
     } else {
       sentence += word + ' ';
