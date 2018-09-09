@@ -43,5 +43,9 @@ def search():
 
     return render_template('suggestions.html', suggestions = similar)
 
+@app.route('/getTitles')
+def getTitles():
+    return json.dumps([submission['title'] for submission in submissions if submission['title']])
+
 if __name__ == '__main__':
     app.run(debug=True)
