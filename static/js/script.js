@@ -17,6 +17,9 @@ $('document').ready(() => {
       var projectIndex = 0;
       function showProject() {
         projectIndex++;
+        if (projectIndex >= projectNames.length) {
+          projectIndex = 0;
+        }
         $('#projectName').html(projectNames[projectIndex]);
         if (showingProjects) {
           window.setTimeout(showProject, 200);
@@ -47,19 +50,33 @@ function animateIdea(response) {
     $(this).remove();
   });
 
+  var words = idea.split(' ');
+  var sentence = '';
+  words.forEach((word) => {
+    if (word === 'asdf') {
+      sentence += '<span class="blue-text">' + word + ' </span>';
+    } else {
+      sentence += word + ' ';
+    }
+  });
+  $('#results').append('<h5>' + sentence + '</h5>');
+
+  /*
   var results = d3.select('#results');
   var svg = results.append('svg').attr('id', 'idea-animation');
   var words = idea.split(' ');
-  var coloredSentence = '';
+  var ideaText = svg.append('text')
+    .attr('x', 200)
+    .attr('y', 50)
   words.forEach((word) => {
       if (word === 'asdf') {
-        coloredSentence +=  '<span class="blue-text">' + word + '</span>';
+        ideaText.append('tspan')
+          .attr('class', 'blue-text')
+          .html(word);
       } else {
-        coloredSentence +=  word;
+        ideaText.append('tspan')
+          .html(word);
       }
     });
-  svg.append('text')
-    .attr('x', 0)
-    .attr('y', 50)
-    .html(coloredSentence);
+    */
 }
