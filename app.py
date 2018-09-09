@@ -32,7 +32,10 @@ def search():
                             }
     )
 
-    keywords = res.body['keyword']
+    if 'keyword' in res.body.keys():
+        keywords = res.body['keyword']
+    else:
+        keywords = []
 
     synonyms = []
 
