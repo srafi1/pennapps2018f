@@ -1,0 +1,80 @@
+[{
+  "info": "",
+  "url": "https://pennapps-xvii.devpost.com/submissions"
+},
+{
+  "info": "CloudChaser (or \"Chase\" for short) allows the user to input custom objects for chase to track. To do this Chase will first rotate counter-clockwise until the object comes into the field of view of the front-facing camera, then it will continue in the direction of the object, continually updating its orientation.",
+  "url": "https://devpost.com/software/cloudchaser"
+},
+{
+  "info": "The modware toolkit is a baseboard that interfaces with different common hardware modules through magnetic power and data connection lines as they are placed onto the baseboard.\nOnce modules are placed on the board and are detected, the user then has three options with the modules: to create a \"wired\" connection between an input type module (LCD Screen) and an output type module (knob), to push a POST request to any user-provided URL, or to request a GET request to pull information from any user-provided URL.\nThese three functionalities together allow a software-focused developer to create their own hardware interactions without ever touching the tedious aspects of hardware (easy hardware prototyping), to use different modules to interact with software applications they have already built (easy hardware interface prototyping), and to use different modules to create a physical representation of events/data from software applications they have already built (easy hardware interface prototyping).",
+  "url": "https://devpost.com/software/modware"
+},
+{
+  "info": "First, a single player hides a virtual penguin somewhere in the room. Then, the app creates hundreds of obstacles for the other players in AR. The player that finds the penguin first wins! ",
+  "url": "https://devpost.com/software/scavengar"
+},
+{
+  "info": "Zeppelin has a plethora of different features that make it as easy as pressing a button to make a difference in today fight against Global Warming. So let's go through a scenario of someone who might use it after flying or driving in a car:\nJake just landed in Atlanta with his flight from San Francisco, and by opening Zeppelin, facing the camera at his boarding pass, and pressing a button, he was quick to donate to the non-profits he knows can help his cause. Luckily, his credit card is stored securely on the app, so there is no need to do any extra typing.\nReni is about to go on a road trip with his friends from New York City to Denver. By opening Zeppelin, typing in where they are going, and pressing the \"Donate\" button, Reni kept his mind at ease during the trip about his carbon footprint.\nWe can scan boarding passes, calculate your CO2 emission by car and by plane, store your credit card for when you want to donate, and we can wire the money to companies like Cool Earth for you. ",
+  "url": "https://devpost.com/software/zeppelin"
+},
+{
+  "info": "The app connects students with teachers in a whole new fashion. Students can provide live feedback to their professors on various aspects of the lecture, such as the volume and pace. Professors, on the other hand, get an opportunity to receive live feedback on their teaching style and also give students a few warm-up exercises with a built-in clicker functionality.\nThe web portion of the project ties the classroom experience to the home. Students receive live transcripts of what the professor is currently saying, along with a summary at the end of the lecture which includes key points. The backend will also generate further reading material based on keywords from the lecture, which will further solidify the students’ understanding of the material.",
+  "url": "https://devpost.com/software/gradian-1qp0ac"
+},
+{
+  "info": "arXain is a Dapp that deals with all the aspects of a peer-reviewed journal service.\nAn author (wallet address) will come with a bomb-ass paper they wrote.\nIn order to \"upload\" their paper to the blockchain, they will first\nneed to add their file/directory to the IPFS distributed file system. This will\nproduce a unique reference number (DOI is currently used in journals)\nand hash corresponding to the current paper file/directory.The author can then use their address on the Ethereum network to create a new contract\nto submit the paper using this reference number and paperID. In this way, there will\nbe one paper per contract. The only other action the\nauthor can make to that paper is submitting another draft.Others can review and comment on papers, but an address can not comment/review\nits own paper. The reviews are rated on a \"work needed\", \"acceptable\" basis\nand the reviewer can also upload an IPFS hash of their comments file/directory.\nProtection is also built in such that others can not submit revisions of the\noriginal author's paper.The blockchain will have a record of the initial paper submitted, revisions made\nby the author, and comments/reviews made by peers. The beauty of all of this is\none can see the full transaction histories and reconstruct the full evolution of\nthe document. One can see the initial draft, all suggestions from reviewers,\nhow many reviewers, and how many of them think the final draft is reasonable.",
+  "url": "https://devpost.com/software/arxain"
+},
+{
+  "info": "DEREZ combines the thrill of first person view car racing with the power of mixed reality. How it works is we are able to render an augmented reality race course for an RC var, visible through an Oculus Rift. The user can use their phone to set the start and end points, obstacles, and other features of the racing experience, and then see those things as they race in first person view using the RC car.",
+  "url": "https://devpost.com/software/derez"
+},
+{
+  "info": "FunkBud not only plays some of the greatest hits of bygone decades, but allows anyone to seize control of one of its virtual instruments for a live jam session using any mobile device. Get groovy with a group of friends or strangers - whoever you funk with, satisfaction and algebraic vibes are guaranteed.",
+  "url": "https://devpost.com/software/funkbud"
+},
+{
+  "info": "You sit in front of the webcam and ask Alexa to give you a rating. In addition to your rating, it will give you a quality meme. ",
+  "url": "https://devpost.com/software/meme-girls"
+},
+{
+  "info": "It is a multiplayer mobile application that works on both iOS and Android. It allows players to compete by selecting a song that matches the beat of the previous song and earn score. Players can join the same session by the use of QR codes. Then, the game requires players to constantly change songs that have a similar BPM as the last one being played to earn points. The longer a song stays up, the more points that player earns. ",
+  "url": "https://devpost.com/software/beat"
+},
+{
+  "info": "FireTree consists of chains of sensors and transmitters, called branches, using a distributed network to monitor the magnitude of events going on nearby, such as fires via a temperature sensor or power outages via a light detector. This information is then relayed to a database which turns around and uses it to power an API, called the trunk. In the future, roots will be added which will be responsible for assisting in fire management, such as autonomous drones.",
+  "url": "https://devpost.com/software/firetree"
+},
+{
+  "info": "Our hack records a motion password desired by the user. Then, when the user wishes to open the safe, they repeat the hand motion that is then analyzed and compared to the set password. If it passes the analysis check, the safe unlocks.",
+  "url": "https://devpost.com/software/toaster-secure"
+},
+{
+  "info": "CRYBL provides investors a clear overview of their cryptocurrency portfolio and integrated access to breaking news. Investors can subscribe to market moving hashtags relevant to their holdings, which will populate their feed alongside a sentiment analysis around those tags. Their balances are connected to CoinMarketCap, where live market data is used to update and graph their respective portfolios. Investors place trades directly on our platform, which we execute on Binance’s exchange for a small fee.The incremental fee proceeds from across our user base get held in an Ethereum Wallet. Investors can check their live rank on our leaderboard, which we measure by percent returns since the first of the month and where gains from any deposits over the course of the month are deferred to the next month. At the end of each month, the contract allocates the Wallet’s pool to the top ten investors, depositing Ethereum directly to their CRYBL portfolios.",
+  "url": "https://devpost.com/software/crybl-competitive-crypto-trading"
+},
+{
+  "info": "The user can search for a song in the Spotify library, and Music in Motion will make a music video based off of the lyrics of the song. ",
+  "url": "https://devpost.com/software/music-in-motion-jd1rct"
+},
+{
+  "info": "Scribblr takes notes for you! Not only that, but it automatically sends an e-blast to meeting attendees at the end and adds discussed deadlines and upcoming meetings to your calendar.Just tell Alexa to start the meeting. Carry out the meeting as normal and, when you're done, tell Alexa the meeting is over. She will immediately begin to create a summary of your meeting, making note of the most important discussion points:\nApproaching deadlines and due dates\nNewly scheduled meetings\nThe most important decisions that were made\nA short paragraph summary of the overall meeting\nAdditionally, anything discussed during the meeting associated with a date will be summarized into a calendar event:\nDate and time of the event\nTitle of the event/task\nImportant topics associated with the event/task\nWhen the meeting is over, those who participated in the meeting will receive an email with the automated Alexa notes and all calendar events will be added to the official company calendar. Why take meeting notes when Alexa can do it for you?",
+  "url": "https://devpost.com/software/scribblr"
+},
+{
+  "info": "Dem Write Brothers is a novel handwriting system that takes just a few minutes to set up, but can save hours upon hours of time. Once you provide a brief sample of your handwriting, you can enter any message for our device to transcribe. The result will be indistinguishable from your own handwriting, and the device will add perturbations so no two letters are the same. Finally, for the ultimate personal feel, you can even write batch letters customized for each recipient.",
+  "url": "https://devpost.com/software/dem-write-brothers"
+},
+{
+  "info": "This analyzes photos of multiple types of cells and identifies which cells are which. It keeps track of how many there are, labels the cells on a separate image allowing you to see where the program made its decisions.",
+  "url": "https://devpost.com/software/cell-identifier"
+},
+{
+  "info": "LaserBit is a system for duplicating standard Kwikset keys from a photo, cutting them on a laser cutter.",
+  "url": "https://devpost.com/software/laserbit"
+},
+{
+  "info": "",
+  "url": "https://devpost.com/software/signar"
+}]
