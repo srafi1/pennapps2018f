@@ -53,6 +53,8 @@ $(document).ready(function(){
         error: function(xhr) {
         }
       });
+
+      return false;
     };
   });
 });

@@ -1,5 +1,10 @@
 <label id="value_lable">
-  {% for suggestion in suggestions %}
-  {{ suggestion }}<br>
+  {% for keyword in keywords %}
+  {{ keyword }}<br>
+  {% endfor %}
+  <br>
+
+  {% for synonym in synonyms %}
+  {{ synonym }}<br>
   {% endfor %}
 </label>
