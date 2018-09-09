@@ -45,15 +45,6 @@ $('document').ready(() => {
       idea = $(this).val();
 
       $.ajax({
-        url: "/results",
-        type: "get",
-        data: {jsdata: idea},
-        success: makeCards,
-        error: function(xhr) {
-        }
-      });
-
-      $.ajax({
         url: "/search",
         type: "get",
         data: {jsdata: idea},
@@ -67,28 +58,8 @@ $('document').ready(() => {
   });
 });
 
-function makeCards(response) {
-  console.log(JSON.parse(response));
-  $("#cards").html(`<div class="row center-align">
-    <div class="col s2"></div>
-    <div class="col s8">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s2"></div>
-  </div>`);
-}
-
 function animateIdea(response) {
+  console.log(response);
   showingProjects = false;
   $('#results').children().fadeOut('fast', function() {
     $(this).remove();
@@ -117,6 +88,32 @@ function animateIdea(response) {
     }
   });
   $('#results').append('<h5>' + sentence + '</h5>');
+
+  var similarProjects = JSON.parse(response).similar;
+  if (similarProjects.length > 0) {
+    $('#results').append('<h5 class="red-text">That\'s not an original idea</h5>');
+  } else {
+    $('#results').append('<h5 class="green-text">Your idea is good to go!</h5>');
+  }
+
+  similarProjects.forEach((proj) => {
+    $('#results').append(`<div class="row center-align">
+      <div class="col s1"></div>
+      <div class="col s10">
+        <div class="card blue-white">
+          <div class="card-content black-text">
+            <p>${proj.info}</p>
+          </div>
+          <div class="card-action">
+            <a href="${proj.url}" target="_blank" class="blue-text">Find it on Devpost</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s1"></div>
+    </div>`);
+  });
+
+  $('#results').append('<a href="/">Try another idea</a>');
 
   /*
   var results = d3.select('#results');

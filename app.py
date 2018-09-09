@@ -48,6 +48,29 @@ def results():
 def search():
     text = request.args.get('jsdata')
 
+    similar = []
+    if text: #if text
+
+        for submission in submissions:
+            if submission['info'] != '':
+                response = unirest.post("https://twinword-text-similarity-v1.p.mashape.com/similarity/",
+                                        headers={
+                                            "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
+                                            "Content-Type": "application/x-www-form-urlencoded",
+                                            "Accept": "application/json"
+                                        },
+                                        params={
+                                            "text1": text,
+                                            "text2": submission['info']
+                                        }
+                )
+
+
+                if response.body['similarity'] > 0.3:
+                    similar.append(submission)
+
+    text = request.args.get('jsdata')
+
     res = unirest.post("https://twinword-topic-tagging.p.mashape.com/generate/",
                             headers={
                                     "X-Mashape-Key": "yl3VcenMlfmshPcSaR0A21BJS82Sp1Mvq8LjsnkzSXBXvwXfVg",
@@ -65,7 +88,7 @@ def search():
     else:
         keywords = []
 
-    return json.dumps({'keywords':keywords})
+    return json.dumps({'keywords':keywords, 'similar':similar})
 
 @app.route('/getTitles')
 def getTitles():
