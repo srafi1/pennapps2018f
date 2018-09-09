@@ -1,4 +1,6 @@
 var idea = '';
+var projectNames = ["Cya", "Cryptopedia with Alexa", "Hive Mind", "keypacitance ", "Seshat", "Wae FindAR", "Keychain", "Groupify", " Bionic Lazer", "ChowPal", "3D-Myosis", "Synaptic Gestures", "Recipe Finder", "Funky Fitness ", "Lagacetamol", ";Who is this?", "ARCHive", "Quintessence", "PoetryAndMe", "Crypto Collective", "The Page Turner", "Restrain Alert", "Tune-Chainz", "Cryptopedia"];
+var showingProjects = false;
 
 $('document').ready(() => {
 
@@ -10,6 +12,18 @@ $('document').ready(() => {
         $(this).html('Analyzing your idea').fadeIn('slow');
       });
       $('#results').children().fadeIn();
+
+      showingProjects = true;
+      var projectIndex = 0;
+      function showProject() {
+        projectIndex++;
+        $('#projectName').html(projectNames[projectIndex]);
+        if (showingProjects) {
+          window.setTimeout(showProject, 200);
+        }
+      }
+      $('#projectName').html(projectNames[projectIndex]);
+      window.setTimeout(showProject, 200);
 
       idea = $(this).val();
 
@@ -28,6 +42,7 @@ $('document').ready(() => {
 });
 
 function animateIdea(response) {
+  showingProjects = false;
   $('#results').children().fadeOut('fast', function() {
     $(this).remove();
   });
