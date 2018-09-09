@@ -6,10 +6,10 @@ $('document').ready(() => {
 
   $('#idea').keydown(function(e){
     if(e.which==13){
-      console.log('entered idea');
+      //console.log('entered idea');
       $('#idea').prop('disabled', true);
       $('#results').children().first().fadeOut('slow', function() {
-        $(this).html('Analyzing your idea').fadeIn('slow');
+        $(this).html('Analyzing these projects').fadeIn('slow');
       });
       $('#results').children().fadeIn();
 
@@ -27,6 +27,20 @@ $('document').ready(() => {
       }
       $('#projectName').html(projectNames[projectIndex]);
       window.setTimeout(showProject, 200);
+
+      var bannerIndex = 12;
+      function showBanner() {
+        bannerIndex++;
+        if (bannerIndex > 17) {
+          bannerIndex = 12;
+        }
+        $('#banner').prop('src', '/static/img/' + bannerIndex.toString() + '.png');
+        if (showingProjects) {
+          window.setTimeout(showBanner, 500);
+        }
+      }
+        $('#banner').prop('src', '/static/img/' + bannerIndex.toString() + '.png');
+      window.setTimeout(showBanner, 500);
 
       idea = $(this).val();
 
@@ -51,7 +65,7 @@ function animateIdea(response) {
   });
 
   var highlightedWords = Object.keys(JSON.parse(response).keywords);
-  console.log(highlightedWords);
+  //console.log(highlightedWords);
 
   var words = idea.split(' ');
   var sentence = '';
