@@ -10,8 +10,8 @@ $('document').ready(() => {
       $('#idea').prop('disabled', true);
       $('#results').children().first().fadeOut('slow', function() {
         $(this).html('Analyzing these projects').fadeIn('slow');
+        $('#results').children().fadeIn('slow');
       });
-      $('#results').children().fadeIn();
 
       showingProjects = true;
       var projectIndex = 0;
@@ -61,6 +61,10 @@ $('document').ready(() => {
 function animateIdea(response) {
   showingProjects = false;
   $('#results').children().fadeOut('fast', function() {
+    $(this).remove();
+  });
+
+  $('#idea').fadeOut('fast', function() {
     $(this).remove();
   });
 
